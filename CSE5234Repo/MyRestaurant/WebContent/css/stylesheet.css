@@ -1,0 +1,61 @@
+
+
+/********************************************
+Style for site logo, title, and slogan
+********************************************/
+
+
+/********************************************
+Style for navbar
+********************************************/
+#navbar {
+	width: 100%;
+	padding: auto;
+	height: auto;
+	background-color: FireBrick;
+	color: white;
+	margin-bottom: 10px;
+}
+
+#navbar a:link, #navbar a:visited, #navbar a:hover, #navbar a:active {
+	float: left;
+	width: 23%;
+	min-width: 70px;
+	font-size: 200%;
+	padding: 10px;
+	color: white;
+}
+.clearfix {
+    overflow: auto;
+}
+
+/********************************************
+Style for body
+********************************************/
+.headerbar {
+	background-color: FireBrick;
+	font-size: 130%;
+	color: white;
+	padding-top: 0.5px;
+	padding-bottom: 0.5px;
+	margin-top: 4px;
+	margin-bottom: 3px;
+}
+
+
+
+/********************************************
+Table style for forms
+********************************************/
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+table#t01 {
+    width: 100%;    
+    background-color:  #F2F2F0;
+}

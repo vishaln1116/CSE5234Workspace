@@ -1,0 +1,13 @@
+package edu.osu.cse5234.util;
+
+public class ServiceLocator {
+	public static OrderProcessingServiceBean getOrderProcessingService() {
+		try {
+	         return (OrderProcessingServiceBean) InitialContext.doLookup(
+					"java:module/OrderProcessingServiceBean!edu.osu.cse5234.business.OrderProcessingServiceBean");
+		} catch (NamingException ne) {
+				throw new RuntimeException(ne);
+		}
+	}
+
+}

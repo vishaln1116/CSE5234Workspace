@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;MyRestaurant/WebContent/css/mystyle.css&apos; to &apos;stylesheet.css&apos;" description="Rename resource &apos;mystyle.css&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/css/mystyle.css" name="stylesheet.css" stamp="1538434002210" updateReferences="true"/>
-</session>

@@ -17,5 +17,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/Chel/source/wlp/dev/api/spec/com.ibm.websphere.javaee.ejb.3.2_1.0.21.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

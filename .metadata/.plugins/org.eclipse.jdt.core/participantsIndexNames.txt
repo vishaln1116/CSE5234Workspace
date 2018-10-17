@@ -1,7 +1,0 @@
-INDEX VERSION 1.130
-D:\Workspace\New folder\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3439180577.index
-\Greetings\src
-D:\Workspace\New folder\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\505692984.index
-\Greetings\src
-D:\Workspace\New folder\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\144641200.index
-\MyRestaurant\src

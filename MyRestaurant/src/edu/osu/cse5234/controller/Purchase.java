@@ -57,7 +57,7 @@ public class Purchase {
     @RequestMapping(path = "/submitItems", method = RequestMethod.POST)
     public String submitItems(@ModelAttribute("order") Order order,
             HttpServletRequest request) {
-        
+         	
         OrderProcessingServiceBean os = ServiceLocator.getOrderProcessingService();
         if (!os.validateItemAvailability(order)) {
         	request.getSession().setAttribute("isInvalidOrder", true);
@@ -110,8 +110,15 @@ public class Purchase {
     public String confirmOrder(@ModelAttribute("order") Order order,
             HttpServletRequest request) {
     	
+    	Order ord = (Order) request.getSession().getAttribute("order");
+    	ord.setPaymentInfo((PaymentInfo) request.getSession().getAttribute("payment"));
+    	ord.setShippingInfo((ShippingInfo) request.getSession().getAttribute("shipping"));
+    	
+    	System.out.println("ORDER:");
+    	System.out.println(ord.getCustomerName() + " " + ord.getEmailAddress() + " " + ord.getPaymentInfo().getCreditCard());
+    	
     	OrderProcessingServiceBean os = ServiceLocator.getOrderProcessingService();
-    	String confirmationCode = os.processOrder(order);
+    	String confirmationCode = os.processOrder(ord);
     	request.getSession().setAttribute("confirmationCode", confirmationCode);
         return "redirect:/purchase/viewConfirmation";
     }

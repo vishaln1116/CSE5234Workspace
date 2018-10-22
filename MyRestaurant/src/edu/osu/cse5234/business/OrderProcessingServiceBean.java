@@ -6,6 +6,8 @@ import java.util.Random;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import edu.osu.cse5234.business.view.InventoryService;
 import edu.osu.cse5234.business.view.Item;
@@ -21,6 +23,8 @@ import edu.osu.cse5234.util.ServiceLocator;
 public class OrderProcessingServiceBean {
 
 	private static Random rng = new Random();
+	
+	@PersistenceContext protected EntityManager entityManager;
 
     public OrderProcessingServiceBean() {
     }
@@ -47,6 +51,17 @@ public class OrderProcessingServiceBean {
         	confirmationCode += Math.abs(rng.nextInt());
         	is.updateInventory(currItems);
     	}
+    	
+    	entityManager.persist(order.getCustomerName());
+    	
+    	for(LineItem lineItem : order.getItems()) {
+    		entityManager.persist(lineItem);
+    	}
+    	
+    	entityManager.persist(order.getPaymentInfo());
+    	entityManager.persist(order.getShippingInfo());
+    	entityManager.flush();
+    	
     	return confirmationCode;
     }
     

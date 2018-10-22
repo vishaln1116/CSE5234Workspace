@@ -11,7 +11,7 @@
   		</tr>
 		<c:forEach items="${order.items}" var="item" varStatus="loop">
 			<tr>
-				<td><c:out value="${item.name}"></c:out></td>
+				<td><c:out value="${item.itemName}"></c:out></td>
 				<td><c:out value="$${item.price}"></c:out></td>
 				<td><c:out value="${item.quantity}"></c:out></td>
 			</tr>
@@ -45,6 +45,10 @@
 		<tr>
 			<td><c:out value="Shipping: State"></c:out></td>
 			<td><c:out value="${shipping.state}"></c:out></td>
+		</tr>
+		<tr>
+			<td><c:out value="Shipping: Country"></c:out></td>
+			<td><c:out value="${shipping.country}"></c:out></td>
 		</tr>
 		<tr>
 			<td><c:out value="Shipping: Zip"></c:out></td>

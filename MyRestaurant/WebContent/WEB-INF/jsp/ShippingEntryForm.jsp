@@ -33,6 +33,11 @@
 				<td><c:out value="State"></c:out></td>
 				<td><form:input path="state" /></td>											
 			</tr>	
+
+			<tr>
+				<td><c:out value="Country"></c:out></td>
+				<td><form:input path="country" /></td>											
+			</tr>	
 			
 			<tr>
 				<td><c:out value="Zip"></c:out></td>

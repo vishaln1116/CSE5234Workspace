@@ -35,10 +35,12 @@ public class Purchase {
 		Order o = new Order();
 		
 		List<LineItem> currLineItems = new ArrayList<>();
+		List<Double> itemPrices = new ArrayList<>();
 		
 		for(Item item : currItems) {
 			LineItem currLineItem = new LineItem(item.getItemNumber(), item.getName(), 0);
 			currLineItems.add(currLineItem);
+			itemPrices.add(item.getPrice());
 		}
 		
 		o.setItems(currLineItems);
@@ -47,6 +49,7 @@ public class Purchase {
 			request.getSession().setAttribute("isInvalidOrder", false);
 		}
 		request.setAttribute("order", o);
+		request.setAttribute("itemPrices", itemPrices);
 
 		return "OrderEntryForm";
     }

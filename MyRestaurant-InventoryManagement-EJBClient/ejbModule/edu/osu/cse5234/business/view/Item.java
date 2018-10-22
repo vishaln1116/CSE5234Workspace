@@ -12,9 +12,6 @@ import javax.persistence.Table;
 @Table(name="ITEM")
 public class Item implements Serializable {
 
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 6205737053442725966L;
 
 	@Id
@@ -25,25 +22,31 @@ public class Item implements Serializable {
 	@Column(name="ITEM_NUMBER")
 	private int itemNumber;
 	
-	@Column(name="DESCRIPTION")
-	private String description;
-	
 	@Column(name="NAME")
 	private String name;
-
-	@Column(name="UNIT_PRICE")
-    private String price;
+	
+	@Column(name="DESCRIPTION")
+	private String description;
 
 	@Column(name="AVAILABLE_QUANTITY")
-    private String quantity;
+    private int quantity;
+	
+	@Column(name="UNIT_PRICE")
+    private double price;
+
 
     public Item() {
-    	this.id = -1;
     	this.itemNumber = -1;
     	this.description = "";
         this.name = "";
-        this.price = "0";
-        this.quantity = "0";
+        this.price = 0;
+        this.quantity = 0;
+    }
+    
+    public Item(int itemNum, String name, int amount) {
+    	this.itemNumber = itemNum;
+        this.name = name;
+        this.quantity = amount;
     }
     
 	public int getId() {
@@ -78,19 +81,19 @@ public class Item implements Serializable {
         this.name = newName;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return this.price;
     }
 
-    public void setPrice(String newPrice) {
+    public void setPrice(double newPrice) {
         this.price = newPrice;
     }
 
-    public String getQuantity() {
+    public int getQuantity() {
         return this.quantity;
     }
 
-    public void setQuantity(String newQuantity) {
+    public void setQuantity(int newQuantity) {
         this.quantity = newQuantity;
     }
 

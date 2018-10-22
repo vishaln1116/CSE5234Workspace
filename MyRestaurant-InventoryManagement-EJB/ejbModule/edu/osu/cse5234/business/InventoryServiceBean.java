@@ -78,8 +78,8 @@ public class InventoryServiceBean implements InventoryService {
 	public boolean validateQuantity(List<Item> items) {
 		boolean valid = true;
 		for (int i = 0; i < items.size() && valid; i++) {
-			valid = Integer.parseInt(currentInventory.itemByName(items.get(i).getName()).getQuantity()) 
-					>= Integer.parseInt(items.get(i).getQuantity());
+			valid = currentInventory.itemByName(items.get(i).getName()).getQuantity() 
+					>= items.get(i).getQuantity();
 		}
 		return valid;
 	}
@@ -87,9 +87,9 @@ public class InventoryServiceBean implements InventoryService {
 	@Override
 	public boolean updateInventory(List<Item> items) {
 		for(Item item : items) {
-			int currentAmount = Integer.parseInt(currentInventory.itemByName(item.getName()).getQuantity());
-			int newAmount = currentAmount - Integer.parseInt(item.getQuantity());
-			currentInventory.itemByName(item.getName()).setQuantity("" + newAmount);
+			int currentAmount = currentInventory.itemByName(item.getName()).getQuantity();
+			int newAmount = currentAmount - item.getQuantity();
+			currentInventory.itemByName(item.getName()).setQuantity(newAmount);
 		}
 		return true;
 	}

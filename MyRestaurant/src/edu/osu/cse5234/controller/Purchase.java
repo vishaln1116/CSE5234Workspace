@@ -1,5 +1,8 @@
 package edu.osu.cse5234.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import edu.osu.cse5234.business.OrderProcessingServiceBean;
 import edu.osu.cse5234.business.view.InventoryService;
 import edu.osu.cse5234.business.view.Item;
+import edu.osu.cse5234.model.LineItem;
 import edu.osu.cse5234.model.Order;
 import edu.osu.cse5234.model.PaymentInfo;
 import edu.osu.cse5234.model.ShippingInfo;
@@ -24,21 +28,25 @@ public class Purchase {
     @RequestMapping(method = RequestMethod.GET)
     public String viewOrderEntryForm(HttpServletRequest request,
             HttpServletResponse response) throws Exception {
-
-    	System.out.println("Received GET request");
     	
 		InventoryService is = ServiceLocator.getInventoryService();
+		List<Item> currItems = is.getAvailableInventory().getItems();
+		
 		Order o = new Order();
 		
-		System.out.println("Retrieving from inventory service...");
-		o.setItems(is.getAvailableInventory().getItems());
-		System.out.println("Succesfully retrieved from inventory serivce.");
+		List<LineItem> currLineItems = new ArrayList<>();
 		
+		for(Item item : currItems) {
+			LineItem currLineItem = new LineItem(item.getItemNumber(), item.getName(), 0);
+			currLineItems.add(currLineItem);
+		}
+		
+		o.setItems(currLineItems);
+				
 		if (request.getSession().getAttribute("isInvalidOrder") == null) {
 			request.getSession().setAttribute("isInvalidOrder", false);
 		}
 		request.setAttribute("order", o);
-    	System.out.println("Going to JSP");
 
 		return "OrderEntryForm";
     }
@@ -46,7 +54,6 @@ public class Purchase {
     @RequestMapping(path = "/submitItems", method = RequestMethod.POST)
     public String submitItems(@ModelAttribute("order") Order order,
             HttpServletRequest request) {
-        order.recalculateTotalPrice();
         
         OrderProcessingServiceBean os = ServiceLocator.getOrderProcessingService();
         if (!os.validateItemAvailability(order)) {

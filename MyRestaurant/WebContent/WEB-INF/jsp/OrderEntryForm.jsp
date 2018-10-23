@@ -12,6 +12,16 @@
 <form:form modelAttribute="order" method="post" action="purchase/submitItems">
     <table id="t01">
     	<tr>
+			<td><c:out value="Name"></c:out></td>
+			<td><form:input path="customerName" /></td>											
+    	</tr>
+    	
+    	<tr>
+			<td><c:out value="Email Address"></c:out></td>
+			<td><form:input path="emailAddress" /></td>											
+    	</tr>
+    
+    	<tr>
     		<th>Item name</th>
     		<th>Price</th>
     		<th>Quantity</th>

@@ -52,14 +52,15 @@ public class OrderProcessingServiceBean {
         	is.updateInventory(currItems);
     	}
     	
-    	entityManager.persist(order.getCustomerName());
-    	
-    	for(LineItem lineItem : order.getItems()) {
-    		entityManager.persist(lineItem);
-    	}
-    	
-    	entityManager.persist(order.getPaymentInfo());
-    	entityManager.persist(order.getShippingInfo());
+//    	entityManager.persist(order.getCustomerName());
+//    	
+//    	for(LineItem lineItem : order.getItems()) {
+//    		entityManager.persist(lineItem);
+//    	}
+//    	
+//    	entityManager.persist(order.getPaymentInfo());
+//    	entityManager.persist(order.getShippingInfo());
+    	entityManager.persist(order);
     	entityManager.flush();
     	
     	return confirmationCode;

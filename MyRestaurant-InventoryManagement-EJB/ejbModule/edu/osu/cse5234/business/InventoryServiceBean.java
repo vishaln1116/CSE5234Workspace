@@ -31,40 +31,6 @@ public class InventoryServiceBean implements InventoryService {
      */
     public InventoryServiceBean() {
     	currentInventory = new Inventory();
-//        Item[] items = new Item[5];
-//
-//        items[0] = new Item();
-//        items[0].setName("Pumpkin pie");
-//        items[0].setPrice("5.00");
-//
-//        items[1] = new Item();
-//        items[1].setName("Apple pie");
-//        items[1].setPrice("4.00");
-//
-//        items[2] = new Item();
-//        items[2].setName("Double chocolate chunk cake");
-//        items[2].setPrice("7.00");
-//
-//        items[3] = new Item();
-//        items[3].setName("Deluxe granola bar");
-//        items[3].setPrice("10.00");
-//
-//        items[4] = new Item();
-//        items[4].setName("Hardtack");
-//        items[4].setPrice("0.20");
-//
-//        Inventory inv = new Inventory();
-//        
-//        ArrayList<Item> lst = new ArrayList<>();
-//
-//        for (Item i : items) {
-//        	i.setQuantity("5");
-//            lst.add(i);
-//        }
-//        
-//        inv.setItems(lst);
-//        
-//		currentInventory = inv;
     }
 
 	@Override

@@ -15,16 +15,12 @@ Your order number is <%= request.getSession().getAttribute("confirmationCode") %
 	<c:forEach items="${order.items}" var="item" varStatus="loop">
 		<tr>
 			<td><c:out value="${item.itemName}"></c:out></td>
-			<td><c:out value="$${item.price}"></c:out></td>
 			<td><c:out value="${item.quantity}"></c:out></td>
 		</tr>
 	</c:forEach>
 	
 </table>
 <table id="t01">	
-	
-<b><c:out value="Total Price"></c:out></b>
-<b><c:out value="$${order.totalPrice}"></c:out></b>
 	
 </table>
 <br> </br>

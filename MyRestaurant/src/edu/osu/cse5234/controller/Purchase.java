@@ -62,7 +62,7 @@ public class Purchase {
         if (!os.validateItemAvailability(order)) {
         	request.getSession().setAttribute("isInvalidOrder", true);
         	return "redirect:/purchase";
-        }else {
+        } else {
         	request.getSession().setAttribute("order", order);
         	return "redirect:/purchase/paymentEntry";
         }

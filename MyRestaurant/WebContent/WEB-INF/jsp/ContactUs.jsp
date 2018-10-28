@@ -6,8 +6,8 @@
 
 <div>
    <h1>Contact Information</h1>
-   <p>Phone Number: </p>
-   <p>Email Address: </p>
+   <p>Phone Number: (614) 123-4567</p>
+   <p>Email Address: questions@BestBakery.com</p>
 </div> 
 
 <%@ include file = "Footer.jsp" %>

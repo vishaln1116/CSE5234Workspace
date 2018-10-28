@@ -114,9 +114,6 @@ public class Purchase {
     	ord.setPaymentInfo((PaymentInfo) request.getSession().getAttribute("payment"));
     	ord.setShippingInfo((ShippingInfo) request.getSession().getAttribute("shipping"));
     	
-    	System.out.println("ORDER:");
-    	System.out.println(ord.getCustomerName() + " " + ord.getEmailAddress() + " " + ord.getPaymentInfo().getCreditCard());
-    	
     	OrderProcessingServiceBean os = ServiceLocator.getOrderProcessingService();
     	String confirmationCode = os.processOrder(ord);
     	request.getSession().setAttribute("confirmationCode", confirmationCode);

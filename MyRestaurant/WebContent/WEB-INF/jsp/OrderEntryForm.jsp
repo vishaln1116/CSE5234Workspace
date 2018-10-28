@@ -29,7 +29,7 @@
 		<c:forEach items="${order.items}" var="item" varStatus="loop">
 			<tr>
 				<td><c:out value="${item.itemName}"></c:out></td>
-				<td><%=((ArrayList<Double>)request.getAttribute("itemPrices")).get(0)%></td>
+				<td><c:out value = "$${itemPrices[loop.index]}0"></c:out></td>
 				<td><form:input path="items[${loop.index}].quantity" /></td>
 				<form:hidden path="items[${loop.index}].itemName" value="${item.itemName}"/>
 			</tr>

@@ -7,17 +7,18 @@
 <div>
   <div>
     <h1>Vishal Nallanagulagari</h1>
-    <p>Hello! I am a fourth-year studying CSE at Ohio State! I'm a big baller.</p>
+    <p>Hello! I am a fourth-year studying CSE at Ohio State! My favorite item from the store is the chocolate cake! 
+    Fun fact about me: I've been getting my haircut by the same person since first grade.</p>
   </div>
   
   <div>
     <h1>Michael</h1>
-    <p>About Michael</p>
+    <p>Third year CSE student. The hardtacks will break your jaw!</p>
   </div>
   
   <div>
     <h1>Hanfei</h1>
-    <p>About Hanfei</p>
+    <p>Third year CSE student. Basketball is my favorite hobby!</p>
   </div>
 </div>
 

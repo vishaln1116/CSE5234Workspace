@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+        
     <wb-module deploy-name="MyRestaurant">
+                
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+                
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/.apt_generated"/>
+                
         <dependent-module archiveName="MyRestaurant-InventoryManagement-EJBClient.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MyRestaurant-InventoryManagement-EJBClient/MyRestaurant-InventoryManagement-EJBClient">
+                        
             <dependency-type>uses</dependency-type>
+                    
         </dependent-module>
+                
         <property name="context-root" value="MyRestaurant"/>
+                
         <property name="java-output-path" value="/MyRestaurant/build/classes"/>
+            
     </wb-module>
+    
 </project-modules>

@@ -6,12 +6,15 @@ import java.util.Random;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.xml.ws.WebServiceRef;
 
 import com.chase.payment.CreditCardPayment;
 import com.chase.payment.PaymentProcessorService;
+import com.ups.shipping.client.ShippingInitiationClient;
 
 import edu.osu.cse5234.business.view.InventoryService;
 import edu.osu.cse5234.business.view.Item;
@@ -26,6 +29,8 @@ import edu.osu.cse5234.util.ServiceLocator;
 @Stateless
 @LocalBean
 public class OrderProcessingServiceBean {
+	
+	private static String shippingResourceURI = "http://localhost:9080/UPS/jaxrs";
 
 	private static Random rng = new Random();
 	
@@ -97,7 +102,32 @@ public class OrderProcessingServiceBean {
     	order.getPaymentInfo().setConfirmationNumber(confirmationCode);
     	
     	entityManager.persist(order);
-    	entityManager.flush();
+    	entityManager.flush();  
+    	
+    	//Count number of items to ship
+    	int shipCount = 0;
+    	for(LineItem item : order.getItems()) {
+    		if(item.getQuantity() > 0) {
+    			shipCount++;
+    		}
+    	}
+    	
+    	String organization = "BestBakery"; 
+    	int orderRefId = order.getId();
+		String zip = order.getShippingInfo().getZip();
+		
+		JsonObject requestJson = Json.createObjectBuilder()
+		               .add("Organization", organization)
+		               .add("OrderRefId", orderRefId)
+		               .add("ItemsNumber", shipCount)
+		               .add("Zip", zip)
+		               .build();
+		
+    	ShippingInitiationClient client = new ShippingInitiationClient(shippingResourceURI);
+    	JsonObject responseJson = client.invokeInitiateShipping(requestJson);
+    	
+    	System.out.println("UPS accepted request? " + responseJson.getBoolean("Accepted")); 
+    	System.out.println("Shipping Reference Number: " + responseJson.getInt("ShippingReferenceNumber"));
     	
     	return confirmationCode;
     }

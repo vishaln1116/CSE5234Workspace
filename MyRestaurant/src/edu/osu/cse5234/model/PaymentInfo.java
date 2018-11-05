@@ -27,9 +27,12 @@ public class PaymentInfo {
 	
 	@Column(name="CVV")
 	private String cvvCode;
+	
+	@Column(name="CONFIRMATION_NUMBER")
+	private String confirmationNumber;
 
+	
 	public PaymentInfo() {
-		
 	}
 	
 	public int getId() {
@@ -70,6 +73,14 @@ public class PaymentInfo {
 
 	public void setHolderName(String newHolderName) {
 		this.holderName = newHolderName;
+	}
+	
+	public String getConfirmationNumber() {
+		return confirmationNumber;
+	}
+
+	public void setConfirmationNumber(String confirmationNumber) {
+		this.confirmationNumber = confirmationNumber;
 	}
 	
 }

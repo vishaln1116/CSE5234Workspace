@@ -1,0 +1,39 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from PaymentProcessorService WSDL service -->
+
+  <service name="PaymentProcessor" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://payment.chase.com"/>
+      <parameter name="wsdlServiceElement" value="PaymentProcessorService"/>
+      <parameter name="schemaQualified" value="http://payment.chase.com"/>
+      <parameter name="wsdlServicePort" value="PaymentProcessor"/>
+      <parameter name="className" value="com.chase.payment.PaymentProcessorSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="PaymentProcessor"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="ping" qname="operNS:ping" xmlns:operNS="http://payment.chase.com" returnQName="retNS:pingReturn" xmlns:retNS="http://payment.chase.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="processPayment" qname="operNS:processPayment" xmlns:operNS="http://payment.chase.com" returnQName="retNS:processPaymentReturn" xmlns:retNS="http://payment.chase.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:info" xmlns:pns="http://payment.chase.com" type="tns:CreditCardPayment" xmlns:tns="http://payment.chase.com"/>
+      </operation>
+      <parameter name="allowedMethods" value="ping processPayment"/>
+
+      <typeMapping
+        xmlns:ns="http://payment.chase.com"
+        qname="ns:CreditCardPayment"
+        type="java:com.chase.payment.CreditCardPayment"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

@@ -12,7 +12,7 @@
 <body>
 <h1 id="title">Best Bakery</h1>
 <h2 id="slogan">Delivery while it's still warm...</h2>
-<div id="navbar" class="clearfix">
+<div id="navbar"class="clearfix">
 	<p>
 		<a href="/MyRestaurant/">Home</a>
 		<a href="/MyRestaurant/purchase">Purchase</a> 

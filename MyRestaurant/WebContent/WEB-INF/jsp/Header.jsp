@@ -11,17 +11,15 @@
 </head>
 
 <body>
-<h1 id="title">Best Bakery</h1>
-<h2 id="slogan">Delivery while it's still warm...</h2>
+<div id="title-bar">
+	<h1 id="title">Best Bakery</h1>
+	<h2 id="slogan"><em>So fast it's hot!</em></h2>
+</div>
 <div id="navbar"class="clearfix">
-	<p>
+	<div id="navbar-body">
 		<a href="/MyRestaurant/">Home</a>
 		<a href="/MyRestaurant/purchase">Purchase</a> 
 		<a href="/MyRestaurant/aboutUs">About us</a> 
 		<a href="/MyRestaurant/contactUs">Contact Us</a>	
-	</p>
-</div>
-
-<div class="headerbar">
-<p>Bakery</p>
+	</div>
 </div>

@@ -13,7 +13,7 @@
   
   <div>
     <h1>Michael</h1>
-    <p>Third year CSE student. The hardtacks will break your jaw!</p>
+    <p>Third year CSE student. Child of a master baker, Michael has years experience cooking all kings of baked goods with all the necessary, secret, homemade ingredients!</p>
   </div>
   
   <div>

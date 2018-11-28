@@ -64,7 +64,12 @@ public class InventoryUpdater {
 				
     private static void udpateInventory(Map<Integer, Integer> orderedItems, Connection conn) throws SQLException {
     	for(Integer itemNum : orderedItems.keySet()) {
-    		conn.createStatement().executeUpdate("update ITEM set AVAILABLE_QUANTITY = " + orderedItems.get(itemNum) + " where ITEM_NUMBER = " + itemNum);
+    		ResultSet rset = conn.createStatement().executeQuery("select AVAILABLE_QUANTITY from ITEM where ID = " + itemNum);
+    		while(rset.next()) {
+    			Integer currentQuantity = rset.getInt("AVAILABLE_QUANTITY");
+        		Integer updatedQuantity = currentQuantity - orderedItems.get(itemNum);
+        		conn.createStatement().executeUpdate("update ITEM set AVAILABLE_QUANTITY = " + updatedQuantity + " where ITEM_NUMBER = " + itemNum);
+    		}
     	}
     }
     

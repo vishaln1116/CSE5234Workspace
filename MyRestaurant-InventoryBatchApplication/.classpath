@@ -2,6 +2,10 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="D:/Workspace/CSE5234Workspace/batch/h2-1.4.197.jar"/>
+=======
+	<classpathentry kind="lib" path="/Users/VishalReddy/Documents/workspace/h2/bin/h2-1.4.197.jar"/>
+>>>>>>> 5ac0362976316a09fb287a1253ea37e2da2316d7
 	<classpathentry kind="output" path="bin"/>
 </classpath>

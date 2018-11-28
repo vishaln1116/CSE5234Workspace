@@ -5,9 +5,9 @@
 <h2>Choose Your Shipment address</h2>
 
 <form:form modelAttribute="shipping" method="post" action="purchase/submitShipping">
-    <table id="t01">
+    <table id="t01" class="table table-hover">
     		<tr>
-    			<th colspan="2">Shipment info</th>
+    			<th colspan="2" scope="col">Shipment info</th>
   			</tr>
 			<tr>
 				<td><c:out value="Name"></c:out></td>

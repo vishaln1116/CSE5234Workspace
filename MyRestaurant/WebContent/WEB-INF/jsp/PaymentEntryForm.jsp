@@ -5,9 +5,9 @@
 <h2>Choose Your Payment Method</h2>
 
 <form:form modelAttribute="payment" method="post" action="purchase/submitPayment">
-    <table id="t01">
+    <table id="t01" class="table table-hover">
     		<tr>
-    			<th colspan="2">Payment info</th>
+    			<th colspan="2" scope="col">Payment info</th>
   			</tr>
 			<tr>
 				<td><c:out value="Credit Card"></c:out></td>

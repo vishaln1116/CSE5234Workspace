@@ -27,7 +27,7 @@ public class InventoryUpdater {
 	}
 	
 	private static Connection createConnection() throws SQLException, ClassNotFoundException { Class.forName("org.h2.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:h2:/Users/VishalReddy/Documents/workspace/CSE5234/h2db/MyRestaurantDB;AUTO_SERVER=TRUE", "sa", "");
+		Connection conn = DriverManager.getConnection("jdbc:h2:D:/MyRestaurantDB;AUTO_SERVER=TRUE", "sa", "");
 		return conn;
 	}
 	
@@ -64,13 +64,13 @@ public class InventoryUpdater {
 				
     private static void udpateInventory(Map<Integer, Integer> orderedItems, Connection conn) throws SQLException {
     	for(Integer itemNum : orderedItems.keySet()) {
-    		conn.createStatement().executeQuery("update ITEM set AVAILABLE_QUANTITY = " + orderedItems.get(itemNum) + " from ITEM where ITEM_NUMBER = " + itemNum);
+    		conn.createStatement().executeUpdate("update ITEM set AVAILABLE_QUANTITY = " + orderedItems.get(itemNum) + " where ITEM_NUMBER = " + itemNum);
     	}
     }
     
 	private static void udpateOrderStatus(Collection<Integer> newOrderIds, Connection conn) throws SQLException {
 		for(Integer orderId : newOrderIds) {
-			conn.createStatement().executeQuery("update CUSTOMER_ORDER set STATUS = 'Processed' where ID = " + orderId);
+			conn.createStatement().executeUpdate("update CUSTOMER_ORDER set STATUS = 'Processed' where ID = " + orderId);
 		}
 	}
 }

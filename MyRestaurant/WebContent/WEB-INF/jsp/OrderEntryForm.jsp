@@ -10,25 +10,17 @@
 </c:if>
 
 <form:form modelAttribute="order" method="post" action="purchase/submitItems">
-    <table id="t01">
+    <table id="t01" class="table table-hover">
     	<tr>
-			<td><c:out value="Name"></c:out></td>
-			<td><form:input path="customerName" /></td>											
-    	</tr>
-    	
-    	<tr>
-			<td><c:out value="Email Address"></c:out></td>
-			<td><form:input path="emailAddress" /></td>											
-    	</tr>
-    
-    	<tr>
-    		<th>Item name</th>
-    		<th>Price</th>
-    		<th>Quantity</th>
+    		<th scope="col">Item name</th>
+    		<th scope="col">Picture</th>
+    		<th scope="col">Price</th>
+    		<th scope="col">Quantity</th>
   		</tr>
 		<c:forEach items="${order.items}" var="item" varStatus="loop">
 			<tr>
-				<td><c:out value="${item.itemName}"></c:out></td>
+				<td id="rowName"><c:out value="${item.itemName}"></c:out></td>
+			    <td><img src="/MyRestaurant/css/${item.itemName}.jpg" height="45" width="45"></img></td>
 				<td><c:out value = "$${itemPrices[loop.index]}0"></c:out></td>
 				<td><form:input path="items[${loop.index}].quantity" /></td>
 				<form:hidden path="items[${loop.index}].itemId" value="${item.itemId}"/>
@@ -37,6 +29,17 @@
 		</c:forEach>
     </table>
     <br> </br>
+    <table id="t01" class="table table-hover">
+        <tr>
+			<td id="rowName"><c:out value="Name"></c:out></td>
+			<td><form:input path="customerName" /></td>											
+    	</tr>
+    	
+    	<tr>
+			<td id="rowName"><c:out value="Email Address"></c:out></td>
+			<td><form:input path="emailAddress" /></td>											
+    	</tr>
+    </table>
     <td colspan="2"><input type="submit" value="Purchase"></td>
 </form:form>
 

@@ -5,9 +5,9 @@
 <h2>Please confirm your order</h2>
 
 <form:form method="post" action="purchase/confirmOrder">
-    <table id="t01">
+    <table id="t01" class="table table-hover">
     	<tr>
-    		<th colspan="3">Order Summary</th>
+    		<th colspan="3" scope="col">Order Summary</th>
   		</tr>
 		<c:forEach items="${order.items}" var="item" varStatus="loop">
 			<tr>
@@ -19,9 +19,9 @@
 	
 	<br> </br>
 	
-	<table id="t01">
+	<table id="t01" class="table table-hover">
 		<tr>
-    		<th colspan="2">Shipment Address</th>
+    		<th colspan="2" scope="col">Shipment Address</th>
   		</tr>
 		<tr>
 			<td><c:out value="Shipping: Name"></c:out></td>
@@ -55,9 +55,9 @@
 	
 	<br> </br>
 	
-	<table id="t01">
+	<table id="t01" class="table table-hover">
 		<tr>
-    		<th colspan="2">Payment Information</th>
+    		<th colspan="2" scope="col">Payment Information</th>
   		</tr>
 		<tr>
 			<td><c:out value="Credit Card: Holder Name"></c:out></td>

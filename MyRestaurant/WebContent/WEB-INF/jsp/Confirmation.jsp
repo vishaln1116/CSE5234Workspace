@@ -8,9 +8,9 @@
 Your order number is <%= request.getSession().getAttribute("confirmationCode") %>
 
 
-<table id="t01">
+<table id="t01" class="table table-hover">
 	<tr>
-   		<th colspan="3">Order Summary</th>
+   		<th colspan="3" scope="col">Order Summary</th>
   	</tr>
 	<c:forEach items="${order.items}" var="item" varStatus="loop">
 		<tr>
@@ -20,13 +20,13 @@ Your order number is <%= request.getSession().getAttribute("confirmationCode") %
 	</c:forEach>
 	
 </table>
-<table id="t01">	
+<table id="t01" class="table table-hover">	
 	
 </table>
 <br> </br>
-<table id="t01">	
+<table id="t01" class="table table-hover">	
 	<tr>
-   		<th colspan="2">Shipment Address</th>
+   		<th colspan="2" scope="col">Shipment Address</th>
   	</tr>
 	<tr>
 		<td><c:out value="Shipping: Name"></c:out></td>
@@ -58,9 +58,9 @@ Your order number is <%= request.getSession().getAttribute("confirmationCode") %
 	</tr>
 </table>
 <br> </br>
-<table id="t01">	
+<table id="t01" class="table table-hover">	
 	<tr>
-   		<th colspan="2">Payment Information</th>
+   		<th colspan="2" scope="col">Payment Information</th>
   	</tr>
 	<tr>
 		<td><c:out value="Credit Card: Holder Name"></c:out></td>

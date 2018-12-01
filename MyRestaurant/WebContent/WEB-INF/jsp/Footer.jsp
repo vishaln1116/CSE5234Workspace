@@ -1,6 +1,8 @@
+		</div>
+		
 		<footer>
 			<div class="footer-body clearfix">
-				<div class="footer-column"><p>Having served the finest pastries and baked goods for over 100 years, we are proud to be able to sell to you today!</p></div>
+				<div class="footer-column"><p>Having served the finest pastries and baked goods for over 120 years, we are proud to be able to sell to you today!</p></div>
 				<div class="footer-column"><p><em>© 2018 All Rights Reserved</em></p></div>
 				<div class="footer-column" id="footer-column-last">
 					<a href="http://www.tumblr.com"><img src="/MyRestaurant/images/logos/tumblr.png" alt="tumblr"></img></a>

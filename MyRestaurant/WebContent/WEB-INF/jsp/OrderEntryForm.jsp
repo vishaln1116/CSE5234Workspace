@@ -13,14 +13,14 @@
     <table id="t01" class="table table-hover">
     	<tr>
     		<th scope="col">Item name</th>
-    		<th scope="col">Picture</th>
+    		<th scope="col">Preview</th>
     		<th scope="col">Price</th>
     		<th scope="col">Quantity</th>
   		</tr>
 		<c:forEach items="${order.items}" var="item" varStatus="loop">
 			<tr>
 				<td id="rowName"><c:out value="${item.itemName}"></c:out></td>
-			    <td><img src="/MyRestaurant/css/${item.itemName}.jpg" height="45" width="45"></img></td>
+			    <td><img src="/MyRestaurant/css/${item.itemName}.jpg" height="145" width="200"></img></td>
 				<td><c:out value = "$${itemPrices[loop.index]}0"></c:out></td>
 				<td><form:input path="items[${loop.index}].quantity" /></td>
 				<form:hidden path="items[${loop.index}].itemId" value="${item.itemId}"/>

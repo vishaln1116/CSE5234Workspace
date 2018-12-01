@@ -15,11 +15,13 @@
 	<h1 id="title">Best Bakery</h1>
 	<h2 id="slogan"><em>So fast it's hot!</em></h2>
 </div>
-<div id="navbar"class="clearfix">
-	<div id="navbar-body">
+<nav class="clearfix">
+	<div class="navbar-body">
 		<a href="/MyRestaurant/">Home</a>
 		<a href="/MyRestaurant/purchase">Purchase</a> 
 		<a href="/MyRestaurant/aboutUs">About us</a> 
-		<a href="/MyRestaurant/contactUs">Contact Us</a>	
-	</div>
-</div>
+		<a id="navbar-item-last" href="/MyRestaurant/contactUs">Contact Us</a>	
+	</div> 
+</nav>
+
+<div class="page-content">

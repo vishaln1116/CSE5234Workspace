@@ -4,6 +4,11 @@ Global style settings
 .body, p, h1, h2, h3, h4, a, tr, th {
 	font-family: 'proximanova', Helvetica, Arial, sans-serif;
 }
+html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
 /********************************************
 Style for site logo, title, and slogan
@@ -25,13 +30,15 @@ Style for site logo, title, and slogan
 #title-bar h2 {
 	font-size: 48px;
 	color: Crimson;
-	
+	margin: 0;
+	padding-top: 10px;
+	padding-bottom: 20px;
 }
 
 /********************************************
 Style for navbar
 ********************************************/
-#navbar {
+nav {
 	width: 100%;
 	padding: auto;
 	height: auto;
@@ -40,12 +47,15 @@ Style for navbar
 	margin-bottom: 10px;
 }
 
-#navbar-body {
+.navbar-body {
 	margin: auto;
-	padding: 10px 10% 10px 10%;
+	/*width: 45%;*/
+	max-width: 590px;
+	
+	overflow: hidden;
 }
 
-#navbar a:link, #navbar a:visited, #navbar a:hover, #navbar a:active {
+.navbar-body a:link, .navbar-body a:visited, .navbar-body a:hover, .navbar-body a:active {
 	text-decoration: none;
 	font-family: 'proximanova', Helvetica, Arial, sans-serif;
 	float: left;
@@ -57,11 +67,20 @@ Style for navbar
 	padding-right: 30px;
 	color: white;
 }
-.clearfix {
-    overflow: auto;
+
+#navbar-item-last {
+	padding-right: 10px !important;
 }
 
-#navbar a:hover {
+.clearfix {
+    clear: both;
+}
+.clearfix:after, .clearfix:before {
+    content: "";
+    display: table;
+}
+
+.navbar-body a:hover {
 	background-color: black;
 }
 
@@ -84,12 +103,16 @@ Style for body
 Table style for forms
 ********************************************/
 table, th, td {
-    border: 1px solid black;
+    border-top: 1px solid black !important;
+    border-left: 1px solid black !important;
+    border-right: 1px solid black !important;
+    border-bottom: 1px solid black !important;
     border-collapse: collapse;
 }
 th, td {
     padding: 15px;
     text-align: center;
+    font-size: 30px;
 }
 tr {
 	height: 50px;
@@ -102,32 +125,70 @@ table#t01 {
     background-color:  #F2F2F0;
 }
 
+form {
+	text-align: center;
+	font-size: 30px;
+}
+
+/********************************************
+Page content style
+********************************************/
+.page-content {
+	width: 80%;
+	max-width: 1000px;
+	margin: auto;
+}
+
+
+.owner-profile {
+	background-color: azure;
+	border-left: 5px solid cornflowerblue;
+	padding: 10px 10px 10px 20px;
+	margin: 20px 5px 20px 5px;
+} 
+
+.home-banner {
+	margin: auto;
+	width: 100%;
+	height: 500px;
+	text-align: center;
+	background-image: url("../images/bakery_banner2.jpg");
+}
+
+.home-banner h1 {
+	margin: auto;
+	font-size: 64px;
+	color: white;
+	padding-top: 200px;
+}
 
 /********************************************
 Footer Style
 ********************************************/
 footer {
 	background-color: FireBrick;
+	margin: auto;
 	margin-top: 20px;
+	overflow: auto;
+	height: auto;
 }
 .footer-body {
 	margin: auto;
 	width: 80%;
+	max-width: 1000px;
+	height: 100%;
 }
-.footer-body:after {
-	content: "";
-    display: table;
-    clear: both;
-}
+
 .footer-column {
-	height: 200px;
+	height: 100%;
 	width: 29%;
-	float: left;
+	
 	color: white;
-	font-size: 24px;
+	font-size: 20px;
 	padding-top: 10px;
 	padding-left: 15px;
 	border-left: 5px solid white;
+	display: table-cell;
 }
 
 .footer-column img {
